@@ -1,232 +1,185 @@
 var app = new Vue({
 
-  el: '#app',
-  data: {
+    el: '#app',
+    data: {
 
-    //usuarios
-    usuarios: {},
-    filer_usuario: [],
-    id_usuario: null, 
-    nombre_usuario: null, 
-    mail_usuario: null, 
-    password_usuario: null, 
-    estado_usuario: null, 
+        //about
+        about: {},
 
-    //quienes somos
-    quienes_somos: {},
-    filer_quienes_somos: [],
-    id_quienes_somos: null, 
-    titulo_quienes_somos: null,
-    detalle_quienes_somos: null, 
-    estado_quienes_somos: null,
+        //blog
+        posts: {},
+        postshome: {},
 
-    //blog
-    posts: {},
-    filer_post: [],
-    id_blog: null, 
-    titulo_blog: null,
-    detalle_blog: null, 
-    imagen_blog: null,
-    estado_blog: null,
+        //clinetes
+        clientes: {},
 
-    //clinetes
-    clientes: {},
-    filter_clientes: [],
-    id_cliente: null,
-    titulo_cliente: null, 
-    detalle_cliente: null, 
-    url_imagen: null, 
-    imagen_clinete: null, 
-    estado_cliente: null, 
+        //comentarios
+        comments: {},
 
+        titulo_about: null,
+        detalle_about: null,
 
-    //buscadores
-    buscar_cliente: null,
-    buscar_post: null, 
-    buscar_quienes_somos: null, 
-    buscar_usuario: null,
-    
-    //
-    // validadores de errores
-    //
-    nombre_usuario_error: null, 
-    mail_usuario_error: null, 
-    password_usuario_error: null, 
-    estado_usuario_error: null, 
+        //mensajes
+        nombre: null,
+        nombre_error: null,
+        correo: null,
+        correo_error: null,
+        fono: null,
+        fono_error: null,
+        asunto: null,
+        asunto_error: null,
+        mensaje: null,
+        mensaje_error: null,
 
-    titulo_blog_error: null, 
-    detalle_blog_error: null, 
+    },
 
-    // alerta
-    Toast: Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    }),
+    mounted: function () {
 
+        this.ListadoPost();
+        this.ListadoAbout();
+        this.ListadoComments();
+        this.ListadoPostHome();
+        this.ListadoMensajes();
 
-  },
+    },
 
-  mounted: function () {
-
-  },
-
-  computed: {
-
-  },
-
-  methods: {
-
-    login: function () {
-
-      axios({
-        method: 'POST',
-        url: '/rae/config/control/Login.php',
-        data: {
-          str_mail_user: app.mail_usuario,
-          str_password_user: app.password_usuario,
-        }
-
-      }).then(function (response) {
-        // handle success
-        console.log(response.data);
-
-        if(response.data == true){
-          app.Toast.fire({
-            icon: 'success',
-            title: 'Acceso correcto'
-          })
-
-          window.location.href = "http://localhost/rae/index";
-
-        }else{
-          app.Toast.fire({
-            icon: 'error',
-            title: 'Datos incorrectos'
-          })
-        }
-
-      }).catch(function (response) {
-
-        console.log(response);
-
-      });
+    computed: {
 
 
     },
 
-    //**************************************************/
-    //  post's grabar
-    //*************************************************/
-    GrabarPost () {
+    methods: {
 
-      axios({
-        method: 'POST',
-        url: '/rae/config/control/NewPost.php',
-        data: {
+        ListadoPostHome () {
+            axios.get('/chayil/config/control/ListadoPostHomeController.php', {}).then(function (response) {
+                app.postshome = response.data;
+            });
+        },
 
-          str_titulo_blog: app.titulo_blog,
-          str_detalle_blog: app.detalle_blog, 
+        ListadoPost () {
+            axios.get('/chayil/config/control/ListPostController.php', {}).then(function (response) {
+                app.posts = response.data;
+            });
+        },
 
-        }
+        ListadoAbout() {
+            axios.get('/chayil/config/control/ListadoAboutController.php', {}).then(function (response) {
 
-      }).then(function (response) {
-        // handle success
-        console.log(response.data);
+                var data;
+                data = response.data
 
-        if(response.data == true){
-          app.Toast.fire({
-            icon: 'success',
-            title: 'Acceso correcto'
-          })
+                data.forEach(function (elemento) {
+                    app.titulo_about = elemento.titulo;
+                    app.detalle_about = elemento.detalle;
+                });
 
-        }else{
-          app.Toast.fire({
-            icon: 'error',
-            title: 'Datos incorrectos'
-          })
-        }
+            });
+        },
 
-      }).catch(function (response) {
+        ListadoComments() {
+            axios.get('/chayil/config/control/ListadoCommentsController.php', {}).then(function (response) {
+                app.comments = response.data;
+            });
+        },
 
-        console.log(response);
+        ListadoMensajes() {
 
-      });
+            axios.get('/chayil/config/control/LisMensajesController.php', {}).then(function (response) {
+                app.posts = response.data;
+            });
 
-      
+        },
 
-    },
+        PostSeleccionado(titulo, detalle, imagen, etiquetas, fecha) {
 
-    //**************************************************/
-    //  post's grabar
-    //*************************************************/
-    ListadoPost () {
+        },
 
-    },
-    //**************************************************/
-    //  validaciones
-    //*************************************************/
-    checkFormLogin: function (e) {
+        Mail() {
 
-      e.preventDefault();
+            alert("awdadaw");
 
-      if (!this.mail_usuario) {
-        this.mail_usuario_error = 'El mail es requerido';
-      }else{
-        this.mail_usuario_error = null;
-      }
-      
-      if (!this.validEmail(this.mail_usuario)) {
-        this.mail_usuario_error = 'Debe ingresar un mail valido';
-      }else{
-        this.mail_usuario_error = null;
-      }
+            axios({
+              method: 'POST',
+              url: '/chayil/config/control/Mail.php',
+              data: {
 
-      if(!this.password_usuario){
-        this.password_usuario_error = 'El password es requerido';
-      }else{
-        this.password_usuario_error = null;
-      }
+                str_nombre: app.nombre,
+                str_correo: app.correo,
+                str_fono: '',
+                str_asunto: app.asunto,
+                str_mensaje: app.mensaje,
 
-      if (!this.mail_usuario_error && !this.password_usuario_error) {
-        app.login();
-      }
+              }
 
-    },
+            }).then(function (response) {
+              // handle success
+              console.log(response.data);
 
-    CheckFormPost: function (e) {
+              if(response.data == true){
+                swal("¡Mensaje Enviado!" ,"¡tu mensaje fue recibido con exito!" ,"success");
+              }else{
+                swal("Error al enviar mensaje" ,"¡no pudimos recibir tu mensaje!" ,"warning");
+              }
 
-      e.preventDefault();
+            }).catch(function (response) {
 
-      if (!this.titulo_blog) {
-        this.titulo_blog_error = "El titulo es requerido";
-      } else {
-        this.titulo_blog_error = "";
-      }
+              console.log(response);
 
-      if (!this.detalle_blog) {
-        this.detalle_blog_error = "El detalle es requerdio";
-      } else {
-        this.detalle_blog_error = "";
-      }
+            });
 
-      if (!this.this.titulo_blog_error && this.detalle_blog_error) {
-        GrabarPost();
-      }
 
-    },
+        },
 
-    validEmail: function (email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+        cheackformMail(e) {
+
+            e.preventDefault();
+
+            if(!this.nombre){
+                this.nombre_error = 'El nombre es requerdio';
+            }else{
+                this.nombre_error = null;
+            }
+
+            if(!this.correo){
+                this.correo_error = 'El correo es requerdio';
+            }else if(!this.validEmail(this.correo)){
+                this.correo_error = 'El correo no es valido';
+            }else {
+                this.correo_error = null;
+            }
+
+            // if(!this.fono){
+            //     this.fono_error = 'El telefono es requerido';
+            // }else{
+            //     this.fono_error = null;
+            // }
+
+            if(!this.asunto){
+                this.asunto_error = 'El asunto es requerdio';
+            }else{
+                this.asunto_error = null;
+            }
+
+            if(!this.mensaje){
+                this.mensaje_error = 'El mensaje es requerdio';
+            }else{
+                this.mensaje_error = null;
+            }
+
+            if(!this.nombre_error && !this.correo_error  && !this.asunto_error && !this.mensaje_error){
+
+                this.Mail();
+
+            }
+        },
+
+        validEmail: function (email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+
+
+        //end app
     }
-
-  }
 
 })

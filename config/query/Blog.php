@@ -1,44 +1,58 @@
-<?php 
+<?php
 
-class Login extends Conexion {
+class Blog extends Conexion {
 
     private static $id_usuario;
+    private static $id_blog;
     private static $titulo;
     private static $detalle;
     private static $imagen;
     private static $estado;
+    private static $etiquetas;
 
-    public function GrabarPost($id_usuario, $titulo, $detalle, $imagen, $estado){
+    public static function ListadoPost($id_usuario) {
 
-        try {
+        try{
 
-            self::$id_usuario = filter_var($id_usuario, FILTER_SANITIZE_INT); 
-            self::$titulo = filter_var($titulo, FILTER_SANITIZE_STRING); 
-            self::$detalle = filter_var($detalle, FILTER_SANITIZE_STRING); 
-            self::$imagen = filter_var($imagen, FILTER_SANITIZE_STRING); 
-            self::$estado = filter_var($estado, FILTER_SANITIZE_INT); 
+            self::$id_usuario = filter_var($id_usuario, FILTER_SANITIZE_NUMBER_INT);
 
-            $sql = "INSERT INTO blog (id_usuario, titulo, detalle, imagen, estado) 
-            VALUES (':id_usuario', ':titulo', ':detalle', ':imagen', ':estado')";
+            //consulta
+            $sql = "SELECT * FROM `blog` WHERE id_usuario = :id_usuario ORDER BY `blog`.`id_blog` DESC";
             $stmt = Conexion::conectar()->prepare($sql);
+            $stmt->bindParam(":id_usuario", self::$id_usuario, PDO::PARAM_INT);
 
-            $stmt->bindParam(":id_usuario", self::$id_usuario, PDO::PARAM_STR);
-            $stmt->bindParam(":titulo", self::$titulo, PDO::PARAM_STR);
-            $stmt->bindParam(":detalle", self::$detalle, PDO::PARAM_STR);
-            $stmt->bindParam(":imagen", self::$imagen, PDO::PARAM_STR);
-            $stmt->bindParam(":estado", self::$estado, PDO::PARAM_INT);
+            $stmt->execute();
 
-            if($stmt->execute()){
-                return json_encode("true");
-            } else {
-                return json_encode("false");
-            }
+            return $stmt->fetchAll();
 
             // cierra la conexion
             Conexion::desconectar($sql, $stmt);
 
-        } catch (\Throwable $th) {
-            return $th->getMessage();
+        }catch (Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public static function ListadoPostHome($id_usuario) {
+
+        try{
+
+            self::$id_usuario = filter_var($id_usuario, FILTER_SANITIZE_NUMBER_INT);
+
+            //consulta
+            $sql = "SELECT * FROM `blog` WHERE id_usuario = :id_usuario ORDER BY `blog`.`id_blog` DESC  LIMIT 6 ";
+            $stmt = Conexion::conectar()->prepare($sql);
+            $stmt->bindParam(":id_usuario", self::$id_usuario, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+
+            // cierra la conexion
+            Conexion::desconectar($sql, $stmt);
+
+        }catch (Exception $e){
+            return $e->getMessage();
         }
     }
 

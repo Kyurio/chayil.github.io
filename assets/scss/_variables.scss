@@ -1,0 +1,30 @@
+/**
+/
+/  1. - variables
+/
+/       colores
+/       fuentes
+/       clases reutilizables
+/
+/   2. - default
+/
+/        modifica los componentes html
+/
+**/
+@font-face {
+  font-family: "SpartanMB-Bold";
+  src: url("/chayil-2/assets/fonts/spartan/SpartanMB-Bold.otf");
+}
+
+@font-face {
+  font-family: "Montserrat-Black";
+  src: url("/chayil-2/assets/fonts/spartan/SpartanMB-Bold.otf");
+}
+
+$font-family: 'SpartanMB-Bold';
+$titles-font: 'Montserrat-Black';
+
+$negro: #0F0E0E;
+$gris: #F0F0F0;
+$blanco: #FFFF;
+$naranja: #EB5F0A;

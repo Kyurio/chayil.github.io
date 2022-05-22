@@ -1,105 +1,50 @@
 <?php
-    require_once("../inc/header.php");
-
-    session_start();
-    if (!isset($_SESSION['usuario'])) {
-        header ("location: login");
-    }
-
+require_once("../templates/header.php");
 ?>
 
-<div class="row">
+<section id="Home">
+  <?php
+    require_once("../components/sections/home.php");
+  ?>
+</section>
 
-    <div class="col-2">
+<section id="Spam">
+  <?php
+    require_once("../components/sections/spam.php");
+  ?>
+</section>
 
-        <?php
-            require_once("../components/sidebar.php");
-        ?>
+<section id="Nosotros">
+  <?php
+    require_once("../components/sections/about.php");
+  ?>
+</section>
 
-    </div>
-    <div class="col-8">
+<section id="Servicios">
+  <?php
+    require_once("../components/sections/comments.php");
+  ?>
+</section>
 
+<section id="Servicios">
+  <?php
+    require_once("../components/sections/services.php");
+  ?>
+</section>
 
-        <section class="pt-5">
-            <div class="container-sm">
-                <div class="tab-content mx-5" id="v-pills-tabContent">
+<section id="Noticias">
+  <?php
+    require_once("../components/sections/news.php");
+  ?>
+</section>
 
-
-                    <!-- home -->
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                        aria-labelledby="v-pills-home-tab">
-                            <?php
-                                require_once("../components/tabs/home.php");
-                            ?>
-                    </div>
-                    <!-- end home -->
-
-                    <!-- blog -->
-                    <div class="tab-pane fade" id="v-pills-blog" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                        <?php
-                                require_once("../components/tabs/blog.php");
-                            ?>
-                    </div>
-                    <!-- end blog -->
-
-                    <!-- productos -->
-                    <div class="tab-pane fade" id="v-pills-productos" role="tabpanel"
-                        aria-labelledby="v-pills-messages-tab">
-                        <?php
-                                require_once("../components/tabs/productos.php");
-                            ?>
-                    </div>
-                    <!-- end productos -->
-
-                    <!-- informacion -->
-                    <div class="tab-pane fade" id="v-pills-informacion" role="tabpanel"
-                        aria-labelledby="v-pills-settings-tab">
-                        <?php
-                                require_once("../components/tabs/informacion.php");
-                            ?>
-                    </div>
-                    <!-- end informacion -->
-
-                    <!-- clientes -->
-                    <div class="tab-pane fade" id="v-pills-clientes" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <?php
-                                require_once("../components/tabs/clientes.php");
-                            ?>
-                    </div>
-                    <!-- end clientes -->
-
-                    <!-- configuracion -->
-                    <div class="tab-pane fade" id="v-pills-configuracion" role="tabpanel"
-                        aria-labelledby="v-pills-settings-tab">
-                        <?php
-                                require_once("../components/tabs/configuracion.php");
-                            ?>
-                    </div>
-                    <!-- end notificaciones -->
-
-                    <!-- notificaciones -->
-                    <div class="tab-pane fade" id="v-pills-notifiaciones" role="tabpanel"
-                        aria-labelledby="v-pills-settings-tab">
-                        <?php
-                                require_once("../components/tabs/notificaciones.php");
-                            ?>
-                    </div>
-                    <!-- end notificaciones -->
-
-                </div>
-            </div>
-        </section>
-
-
-    </div>
-    <div class="col-2">
-        
-    </div>
-
-
-</div>
+<section id="Contacto">
+  <?php
+    require_once("../components/sections/contact.php");
+  ?>
+</section>
 
 
 <?php
-    require_once("../inc/footer.php");
+require_once("../templates/footer.php");
 ?>

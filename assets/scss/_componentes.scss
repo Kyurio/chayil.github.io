@@ -1,0 +1,228 @@
+.home {
+
+  height: 65rem;
+  background-image: url("https://img.freepik.com/foto-gratis/resultados-lugar-trabajo_1418-61.jpg?t=st=1651442221~exp=1651442821~hmac=eb353a5357e8c3593c4657be7dc48068e2e8d77c081621bfd0221bfd9d02620c");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 10vw;
+  position: relative;
+
+}
+.home:before {
+  	content:'';
+  	position: absolute;
+    top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	background-color: rgba(0,0,0,0.6);
+}
+
+
+//
+//
+//
+//
+//
+
+.about {
+
+  background-image: url("https://img.freepik.com/foto-gratis/documentos-graficos-pantalla-tactil-escritorio_1098-241.jpg?t=st=1651422465~exp=1651423065~hmac=a533a51ab2ef5e13b5f1031057b522aa40b8d91e7502b299efa9b890459c2e80&w=1060");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+.about:before {
+  	content:'';
+  	position: absolute;
+    top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	background-color: rgba(0,0,0,0.6);
+}
+
+//
+//
+//
+//
+//
+
+.services {
+
+  background-image: url("https://media.discordapp.net/attachments/963632281916952586/969440453147631696/4D923907.jpg?width=896&height=665");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50rem;
+  position: relative;
+}
+.services:before {
+  	content:'';
+  	position: absolute;
+    top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	background-color: rgba(0,0,0,0.6);
+}
+
+//
+//
+//
+//
+//
+
+.title {
+
+
+
+}
+.title:before {
+
+  content:'';
+	position: absolute;
+  top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+
+}
+
+.subtitle {
+  color: $naranja;
+  text-align:center;
+  font-size: 3vw;
+}
+//
+//
+//
+//
+//
+
+.news {
+  padding:  10vh;
+}
+
+.span {
+    height: 20vh;
+}
+
+
+
+//
+//
+//
+//
+//
+
+.card-dark {
+  margin-top: -15vh;
+  padding: 10vh;
+  background-color: $negro;
+  display: block;
+
+}
+.card-orange {
+  margin-top: -15vh;
+  padding: 10vh;
+  display: block;
+  background-color: $naranja;
+}
+
+//
+//
+//
+//
+//
+
+.mb-10 {
+  margin-bottom: 12rem;
+}
+.mt-10 {
+  margin-top: 12rem;
+}
+
+//
+//
+//
+//
+//
+
+.border-start-bar {
+
+  border-left: 10px solid $naranja !important;
+  left: 10px solid $naranja !important;
+
+
+}
+
+//
+//
+//
+//
+//
+.icon {
+  height: 10vh;
+}
+//
+//
+//
+//
+//
+
+.offcanvas-top {
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 70vh;
+  max-height: 100%;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  transform: translateY(-100%);
+  color: $blanco;
+  background-color: $negro;
+}
+
+.offcanvas-top img{
+
+  color: $negro
+
+}
+
+//
+//
+//
+//
+//
+.hero-image {
+	background-image: url("https://img.freepik.com/foto-gratis/resultados-lugar-trabajo_1418-61.jpg?t=st=1651442221~exp=1651442821~hmac=eb353a5357e8c3593c4657be7dc48068e2e8d77c081621bfd0221bfd9d02620c");
+	height: 100vh;
+    background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.hero-image:before {
+  	content:'';
+  	position: absolute;
+    top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	background-color: rgba(0,0,0,0.6);
+}
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
