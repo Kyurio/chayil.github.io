@@ -1,17 +1,17 @@
 RewriteEngine on
 
 #Redirecciona al index
-RewriteRule ^$ /chayil/views/index.php [L]
+RewriteRule ^$ /chayil.github.io/views/index.php [L]
 
 #buscar el archivo ingresado en la url
 RewriteCond %{REQUEST_FILENAME} !-f
 
 #Urls amigables
-RewriteRule ^([a-zA-Z0-9/]+)$ /chayil/views/$1.php [NC,L]
+RewriteRule ^([a-zA-Z0-9/]+)$ /chayil.github.io/views/$1.php [NC,L]
 
 
 #Error
-ErrorDocument 404 /chayil/error/404.php
-ErrorDocument 500 /chayil/error/500.php
-ErrorDocument 403 /chayil/error/403.php
-ErrorDocument 300 /chayil/error/300.php
+ErrorDocument 404 /chayil.github.io/error/404.php
+ErrorDocument 500 /chayil.github.io/error/500.php
+ErrorDocument 403 /chayil.github.io/error/403.php
+ErrorDocument 300 /chayil.github.io.github.io/error/300.php

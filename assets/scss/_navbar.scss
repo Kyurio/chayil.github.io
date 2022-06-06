@@ -4,7 +4,14 @@
 /
 **/
 .navbar {
-  padding: 4vh !important;
+  padding: 2vh !important;
   background-color: $negro !important;
   color: $blanco !important;
+}
+
+
+.navbar-toggler-icon {
+
+    color: $blanco;
+
 }

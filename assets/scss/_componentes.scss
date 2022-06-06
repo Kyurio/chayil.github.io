@@ -1,12 +1,10 @@
 .home {
 
-  height: 65rem;
   background-image: url("https://img.freepik.com/foto-gratis/resultados-lugar-trabajo_1418-61.jpg?t=st=1651442221~exp=1651442821~hmac=eb353a5357e8c3593c4657be7dc48068e2e8d77c081621bfd0221bfd9d02620c");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-size: 10vw;
   position: relative;
 
 }
@@ -225,4 +223,35 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #106eea;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+.back-to-top i {
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
+.back-to-top:hover {
+  background: #3284f1;
+  color: #fff;
+}
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
 }

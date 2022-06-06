@@ -39,7 +39,6 @@ var app = new Vue({
         this.ListadoAbout();
         this.ListadoComments();
         this.ListadoPostHome();
-        this.ListadoMensajes();
 
     },
 
