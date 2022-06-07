@@ -12,7 +12,7 @@ require_once("../templates/header.php");
                     <form class="p-4 p-md-5 border rounded-3 bg-light">
 
                         <h5 class="text-dark mb-4">Factoriza tus facturas</h5>
-                        <br><br>
+                        <br>
                         <span class="text-dark">Datos De cliente</span>
                         <div class="row">
                             <div class="col-4">
@@ -42,7 +42,7 @@ require_once("../templates/header.php");
 
 
 
-                        <br><br>
+                        <br>
                         <span class="text-dark">Datos Contacto</span>
                         <div class="row">
                             <div class="col-4">
@@ -60,7 +60,7 @@ require_once("../templates/header.php");
                         </div>
 
 
-                        <br><br>
+                        <br>
                         <span class="text-dark">Datos Factura</span>
                         <div class="row">
                             <div class="col-3">

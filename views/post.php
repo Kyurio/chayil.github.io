@@ -1,7 +1,6 @@
 <?php
 require_once("../templates/header.php");
 ?>
-<br><br><br>
 <div class="container mt-5 mb-5 py-5 mx5">
 
     <div v-for="item in posts" class="p-5 mb-4 mt-5 rounded-3 card-dark">
@@ -13,8 +12,6 @@ require_once("../templates/header.php");
     </div>
 
 </div>
-
-
 <?php
 require_once("../templates/footer.php");
 ?>

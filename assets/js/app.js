@@ -31,6 +31,10 @@ var app = new Vue({
         mensaje: null,
         mensaje_error: null,
 
+        //spams
+        mail_suscribe: null,
+        error_mail_suscribe: null,
+
     },
 
     mounted: function () {
@@ -95,8 +99,6 @@ var app = new Vue({
 
         Mail() {
 
-            alert("awdadaw");
-
             axios({
               method: 'POST',
               url: '/chayil/config/control/Mail.php',
@@ -127,6 +129,34 @@ var app = new Vue({
             });
 
 
+        },
+
+        Subscribe() {
+
+            axios({
+              method: 'POST',
+              url: '/chayil.github.io/config/control/Suscribe.php',
+              data: {
+
+                str_mail: app.mail_suscribe,
+
+              }
+
+            }).then(function (response) {
+              // handle success
+              console.log(response.data);
+
+              if(response.data == true){
+                swal("¡Gracias por suscribirte a nuestro boletin!" ,"","success");
+              }else{
+                swal("Error al enviar mensaje" ,"¡no pudimos recibir tu mensaje!" ,"warning");
+              }
+
+            }).catch(function (response) {
+
+              console.log(response);
+
+            });
         },
 
         cheackformMail(e) {
@@ -168,6 +198,24 @@ var app = new Vue({
             if(!this.nombre_error && !this.correo_error  && !this.asunto_error && !this.mensaje_error){
 
                 this.Mail();
+
+            }
+        },
+
+        cheackformSucribe(e) {
+
+
+            if(!this.mail_suscribe){
+                this.error_mail_suscribe = 'El correo es requerdio';
+            }else if(!this.validEmail(this.mail_suscribe)){
+                this.error_mail_suscribe = 'El correo no es valido';
+            }else {
+                this.error_mail_suscribe = null;
+            }
+
+            if(!this.error_mail_suscribe){
+
+                this.Subscribe();
 
             }
         },

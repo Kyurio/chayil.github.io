@@ -1,10 +1,4 @@
-
-</div>
-<?php
-require_once("../components/others/footer.php");
-require_once("../components/others/offcanvas.php");
-?>
-</main>
+    </main>
 </body>
 <!-- popper -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
