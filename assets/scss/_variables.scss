@@ -1,17 +1,22 @@
-@font-face {
-  font-family: "SpartanMB-Bold";
-  src: url("/chayil-2/assets/fonts/spartan/SpartanMB-Bold.otf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 
-@font-face {
-  font-family: "Montserrat-Black";
-  src: url("/chayil-2/assets/fonts/spartan/SpartanMB-Bold.otf");
-}
+$titles: 'Concert One', cursive;
+$font-family: 'Lato', sans-serif;
 
-$font-family: 'SpartanMB-Bold';
-$titles-font: 'Montserrat-Black';
+$negro: #000000;
+$negro-claro: #1A1A2E;
+$purpura: #16213E;
+$purpura-claro: #0F3460;
+$cafe: #2C232A;
 
-$negro: #0F0E0E;
 $gris: #F0F0F0;
 $blanco: #FFFF;
 $naranja: #EB5F0A;
+
+$border: 15px !important;
+
+
+
+$color-botton: black;
+$text-bottom: white;

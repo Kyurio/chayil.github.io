@@ -1,4 +1,4 @@
-<section>
+<section id="comentarios">
 	<div id="carouselExampleControls" class="carousel slide mt-5 py-5 mx-5 mb-5" data-bs-ride="carousel" data-aos="fade-in" ata-aos-duration="1000">
 		<div class="container-sm">
 			<div class="carousel-inner">

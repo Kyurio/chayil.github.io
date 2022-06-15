@@ -1,0 +1,44 @@
+html {
+
+    background-color: $negro-claro !important;
+    font-family: $font-family;
+
+}
+
+body {
+
+    background-color: $negro-claro !important;
+    color: $blanco;
+    font-family: $font-family;
+
+}
+
+hr {
+
+    width: 60px;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $titles !important;
+}
+
+section {
+
+    height: 55rem !important;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    section {
+
+        height: 25rem !important;
+
+    }
+}

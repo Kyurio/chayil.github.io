@@ -1,0 +1,26 @@
+.hero {
+
+    height: 50rem;
+
+    h1 {
+
+        font-size: 8vw;
+        font-weight: 800;
+
+    }
+
+    p {
+        color: $gris;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .hero {
+
+        height: 20rem;
+        margin-bottom: 20rem;
+
+    }
+}

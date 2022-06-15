@@ -4,7 +4,14 @@
 <main>
     <div id="app">
         <?php
+            require_once("../components/sections/home.php");
+        ?>
+        <?php
             require_once("../components/sections/spam.php");
+        ?>
+        <!-- services -->
+        <?php
+            require_once("../components/sections/services.php");
         ?>
         <!-- contacto -->
         <?php
